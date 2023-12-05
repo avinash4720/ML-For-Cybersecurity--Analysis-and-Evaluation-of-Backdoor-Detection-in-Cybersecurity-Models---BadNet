@@ -1,21 +1,21 @@
-# ML-for-Cybersec---Pruning-for-Backdoor-Detection-in-Neural-Nets
+# ML-For-Cybersecurity--Analysis-and-Evaluation-of-Backdoor-Detection-in-Cybersecurity-Models---BadNet
 
 ## ECE-GY 9163 - ML for Cyber Security, Fall 2023
 
 ### Author
-Nagharjun M (nm4074)
+Avinash Vijayarangan av3134
 
 ## Introduction
 
-This report contains explanations for the findings in Lab 4 - Designing and Evaluating a Pruning-Based Backdoor Detector for Neural Networks. Pruning defence is applied to a compromised BadNet model trained on the YouTube Face dataset, aiming to disable the backdoor while preserving accuracy for clean inputs. Further findings, based on various pruning levels, provide insights into balancing network integrity with robustness against backdoor attacks.
+This study discusses the outcomes of Lab 4, focusing on a Pruning-Based Backdoor Detector for Neural Networks. The research explores using a pruning defense on a compromised neural network model (BadNet), trained using the YouTube Face dataset. The objective is to neutralize the backdoor without compromising the accuracy of clean data inputs. Various pruning intensities were tested to find a balance between network security and performance.
 
 ## Dataset
 
-The YouTube Face dataset is used in this experiment which is further divided into clean and poisoned subsets. I use clean validation and test sets (valid.h5 and test.h5) to fine-tune and assess the model. For backdoor simulation, poisoned datasets with a sunglasses trigger (bd\_valid.h5 and bd\_test.h5) are used to test the defence.
+The YouTube Face dataset, comprising both clean and poisoned data, was utilized. The clean validation and test datasets (valid.h5 and test.h5) were used for model fine-tuning and evaluation. For backdoor attack simulations, poisoned datasets with a sunglasses trigger (bd valid.h5 and bd test.h5) were employed.
 
 ## Workflow
 
-I implemented a pruning defense on a neural network, selectively removing channels based on activation levels until accuracy dropped by predefined thresholds (2\%, 4\%, 10\%). Using TensorFlow and Keras, I evaluated the pruned models against both original and poisoned data, classifying inputs as clean or backdoored based on model agreement. This approach aimed to balance accuracy with effective backdoor detection.
+The study involved implementing a pruning defense strategy on a neural network. This involved selectively removing network channels based on their activation levels until the accuracy fell by predefined thresholds (2%, 4%, 10%). Using TensorFlow and Keras, the performance of pruned models was assessed against both original and poisoned data. The method aimed to maintain accuracy while effectively detecting and mitigating backdoor threats.
 
 ## Running the Code
 
@@ -32,11 +32,11 @@ To run this project, follow the steps below:
    drive.mount('/content/drive')
 4. Set the file paths in the `lab4.ipynb` notebook to match the locations of your data files in Google Drive. Replace path-in-drive with the actual path to your files:
    ```python
-    cleanValidDataPath = '/content/drive/MyDrive/your-path-in-drive/valid.h5'
-    cleanTestDataPath = '/content/drive/MyDrive/your-path-in-drive/test.h5'
-    poisonedTestDataPath = '/content/drive/MyDrive/your-path-in-drive/bd_test.h5'
-    badModelPath = '/content/drive/MyDrive/your-path-in-drive/bd_net.h5'
-    badModelWeightsPath = '/content/drive/MyDrive/your-path-in-drive/bd_weights.h5'
+      clean_data_filename = '/content/drive/MyDrive/Lab3/cl/valid.h5'
+      test_filename = '/content/drive/MyDrive/Lab3/cl/test.h5'
+      poisoned_filename = '/content/drive/MyDrive/Lab3/bd/bd_test.h5'
+      model_name = '/content/drive/MyDrive/Lab3/models/bd_net.h5'
+      model_weights = '/content/drive/MyDrive/Lab3/models/bd_weights.h5'
 
 
 ## Results
